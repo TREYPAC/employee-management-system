@@ -24,33 +24,36 @@ const EmployeeForm = () => {
     };
 
     return (
-        <form className="employee-form" onSubmit={handleSubmit}>
-            <input
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Name"
-            />
-            <input
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Email"
-            />
-            <input
-                name="jobTitle"
-                value={formData.jobTitle}
-                onChange={handleChange}
-                placeholder="Job Title"
-            />
-            <input
-                name="department"
-                value={formData.department}
-                onChange={handleChange}
-                placeholder="Department"
-            />
-            <button type="submit">Submit</button>
-        </form>
+        <div>
+            <h2>Add Employee</h2> {/* Added header */}
+            <form className="employee-form" onSubmit={handleSubmit}>
+                <input
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Name"
+                />
+                <input
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email"
+                />
+                <input
+                    name="jobTitle"
+                    value={formData.jobTitle}
+                    onChange={handleChange}
+                    placeholder="Job Title"
+                />
+                <input
+                    name="department"
+                    value={formData.department}
+                    onChange={handleChange}
+                    placeholder="Department"
+                />
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     );
 };
 
