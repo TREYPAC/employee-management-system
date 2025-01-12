@@ -9,6 +9,27 @@ const EmployeeForm = () => {
         department: '',
     });
 
+    const [employees, setEmployees] = useState([]);
+
+    // Function to save data to local storage
+    const saveData = (data) => {
+        localStorage.setItem('employees', JSON.stringify(data));
+    };
+
+    // Function to add a new employee
+    const addEmployee = (employee) => {
+        const updatedEmployees = [...employees, employee];
+        setEmployees(updatedEmployees);
+        saveData(updatedEmployees);
+    };
+
+    // Handle form submission
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addEmployee(formData);
+        setFormData({ name: '', email: '', jobTitle: '', department: '' });
+    };
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
@@ -17,15 +38,9 @@ const EmployeeForm = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formData); // Log the form data
-        setFormData({ name: '', email: '', jobTitle: '', department: '' }); // Reset the form
-    };
-
     return (
         <div>
-            <h2>Add Employee</h2> {/* Added header */}
+            <h2>Add Employee</h2>
             <form className="employee-form" onSubmit={handleSubmit}>
                 <input
                     name="name"
